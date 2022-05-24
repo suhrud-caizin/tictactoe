@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
-
-  providedIn:'root'
-}
+@Injectable(
 )
 export class boardService {
  
@@ -21,10 +18,12 @@ export class boardService {
 
   toggle() {
     this.player = this.player == 'O' ? 'X' : 'O';
+    console.log(this.player+"**")
   }
   tileClicked(i:number,j:number){
-    console.log(i+""+j);
-      this.board[i][j]=this.CurrentTurn;
+    console.log(this.board[i][j]+"**************");
+    this.board[i][j]=this.CurrentTurn;
+    console.log(this.board[i][j]+"**************");
       this.toggle();
       setTimeout(() => {
         this.checkMatchFinished();

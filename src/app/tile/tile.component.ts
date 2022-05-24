@@ -5,24 +5,31 @@ import { boardService } from '../board.service';
   selector: 'app-tile',
   templateUrl: './tile.component.html'
 })
-export class TileComponent {
+export class TileComponent  {
   @Input() row: number=0;
   @Input() col: number=0;
 
-   currentPlayer: string | null = null;
+  @Input() currentPlayer: string ='';
   /**
    *
    */
   constructor(private bs:boardService) {
-    
+   
+//  this.currentPlayer=bs.CurrentTurn;
     
   }
+  // ngOnInit(): void {
+  //   this.currentPlayer=this.bs.CurrentTurn;
+  // }
  
   mark2(){
-    this.currentPlayer=this.bs.CurrentTurn;
+    // setTimeout(() => {
+    // }, 100);
+    
+    // this.currentPlayer=this.bs.CurrentTurn;
         this.bs.tileClicked(this.row,this.col);
         console.log('event called'+this.row+this.col+this.currentPlayer);
-        console.log(this.bs.board)
+        // console.log(this.bs.board)
   }
 
 }

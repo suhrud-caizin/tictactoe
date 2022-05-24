@@ -6,13 +6,17 @@ import { boardService } from './board.service';
   selector: 'my-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [boardService],
+  providers: [boardService]
 })
 export class AppComponent {
   title='ticktoktoe';
   constructor(private bs: boardService) {}
-  get(): boardService {
-    return this.bs;
+  getBoard():string[][]  {
+    console.log(this.bs.board)
+    return this.bs.board;
+  }
+  getCurrentPlayer(i:number,j:number):string{
+    return this.bs.board[i][j];
   }
  
   
